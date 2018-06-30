@@ -1,0 +1,9 @@
+spring:
+  main:
+    web-application-type: NONE
+
+stampist:
+  token: ABCDE
+  server-url: ws://localhost:8088/stampist/websocket
+  
+    
