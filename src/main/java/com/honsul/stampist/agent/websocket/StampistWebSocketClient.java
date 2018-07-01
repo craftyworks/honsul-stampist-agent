@@ -48,7 +48,7 @@ public class StampistWebSocketClient implements CommandLineRunner, StompSessionH
   }
 
   private void connect() {
-    logger.info("connecting {}", config.getServerUrl());
+    logger.info("connecting {} with token : {}", config.getServerUrl(), config.getToken());
     StompHeaders connectHeaders = new StompHeaders();
     connectHeaders.add("token", config.getToken());
     
@@ -58,6 +58,9 @@ public class StampistWebSocketClient implements CommandLineRunner, StompSessionH
   @Override
   public void afterConnected(StompSession session, StompHeaders connectedHeaders) {
     logger.info("connected : {}, {}" + session, connectedHeaders);
+    startWorkingHandler.setSession(session);
+    stopWorkingHandler.setSession(session);
+    
     session.subscribe("/user" + Stamp.START_WORKING.getDestination(), startWorkingHandler);
     session.subscribe("/user" + Stamp.STOP_WORKING.getDestination(), stopWorkingHandler);
   }

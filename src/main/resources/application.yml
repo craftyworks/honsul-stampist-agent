@@ -3,7 +3,6 @@ spring:
     web-application-type: NONE
 
 stampist:
-  token: ABCDE
-  server-url: ws://localhost:8088/stampist/websocket
-  
-    
+  token: ODC0MJY1MDG0
+  server-url: ws://honsul.kr:8088/stampist/websocket
+  #server-url: ws://localhost:8088/stampist/websocket
